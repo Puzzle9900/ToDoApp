@@ -10,6 +10,7 @@ export default {
   fadedPrime: 'rgba(0,10,92,0.7)',
   fadedBlack: 'rgba(0,0,0,0.7)',
   hover:      'rgba(0,0,0,0.05)',
+  iconDefault: '#5f6368',
 
   // By color
   alto:       '#D9D9D9',

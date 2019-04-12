@@ -1,8 +1,8 @@
 import App from './App'
-import AppRouter from './AppRouter'
+import Icon from './Icon'
 
 
 export default {
   App,
-  AppRouter,
+  Icon,
 }
