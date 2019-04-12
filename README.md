@@ -1,3 +1,5 @@
+ToDo App application showing the most important features of ReactJS
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
