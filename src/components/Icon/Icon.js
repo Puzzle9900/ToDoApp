@@ -5,6 +5,8 @@ import styled from 'styled-components'
 
 
 const SIcon= styled.div`
+    width: fit-content;
+    height: fit-content;
     i {
         font-size: ${({size}) => Dimensions.IconSize[size]};
         color: ${({color}) => color};
@@ -19,7 +21,7 @@ function Icon({
 }) {
   return (
       <SIcon size={size}  color={color}>
-        <i class="material-icons">
+        <i className="material-icons">
             {iconName || 'close'}
         </i>
       </SIcon>
