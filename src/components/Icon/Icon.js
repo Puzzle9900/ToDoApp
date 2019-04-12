@@ -1,7 +1,16 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {Colors, Dimensions} from 'themes'
-import Styled from './styles'
+import styled from 'styled-components'
+
+
+const SIcon= styled.div`
+    i {
+        font-size: ${({size}) => Dimensions.IconSize[size]};
+        color: ${({color}) => color};
+    }
+`
+
 
 function Icon({
     iconName,
@@ -9,11 +18,11 @@ function Icon({
     size,
 }) {
   return (
-      <Styled.Icon size={size}>
+      <SIcon size={size}  color={color}>
         <i class="material-icons">
             {iconName || 'close'}
         </i>
-      </Styled.Icon>
+      </SIcon>
   );
 }
 
@@ -28,7 +37,7 @@ Icon.propTypes = {
 
 Icon.default = {
     color: Colors.iconDefault,
-    size: 'sm',
+    size: Dimensions.IconSize.default,
 }
 
 export default Icon;
