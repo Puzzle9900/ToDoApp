@@ -11,9 +11,9 @@ export default {
   fadedBlack: 'rgba(0,0,0,0.7)',
   hover:      'rgba(0,0,0,0.05)',
   elevation:      '#00000066',
+  borders:  '#D9D9D9',
 
   // By color
-  alto:       '#D9D9D9',
   buttercup:  '#F5A623',
   eggSour:    '#FFF3DE',
   paleSky:    '#6C7381',
