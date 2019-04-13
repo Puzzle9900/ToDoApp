@@ -41,8 +41,6 @@ function Toolbar({
 }
 
 Toolbar.propsTypes = {
-    // Elevation of the toolbar
-    elevation: PropTypes.number,
     // Children node to render
     children: PropTypes.node,
 }

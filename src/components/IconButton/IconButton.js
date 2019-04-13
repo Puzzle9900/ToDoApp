@@ -5,7 +5,6 @@ import styled from 'styled-components'
 
 
 const SButton = styled.button`
-    margin: 16px;
     padding: 8px;
     border: 0px;
     border-radius: 50%;
