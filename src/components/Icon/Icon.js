@@ -9,10 +9,9 @@ const SIcon= styled.div`
     height: fit-content;
     i {
         font-size: ${({size}) => Dimensions.IconSize[size]};
-        color: ${({color}) => color};
+        color: ${({color}) => Colors[color]};
     }
 `
-
 
 function Icon({
     iconName,
@@ -32,13 +31,13 @@ Icon.propTypes = {
     // Name of one of the icons of collection themes/Icons
     iconName: PropTypes.string.isRequired,
     // Color of the icon
-    color: PropTypes.string,
+    color: PropTypes.oneOf(Object.keys(Colors)),
     // Size of the icon
     size: PropTypes.oneOf(Object.keys(Dimensions.IconSize))
 }
 
-Icon.default = {
-    color: Colors.iconDefault,
+Icon.defaultProps = {
+    color: 'secondary',
     size: Dimensions.IconSize.default,
 }
 

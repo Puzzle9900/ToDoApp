@@ -9,7 +9,7 @@ const SButton = styled.button`
     padding: 8px;
     border: 0px;
     border-radius: 50%;
-    background-color: none;
+    background-color: ${Colors.clear};
     &:hover {
         background-color: ${Colors.hover};
         cursor: pointer;
@@ -18,7 +18,6 @@ const SButton = styled.button`
         outline:0;
     }
 `
-
 
 function IconButton({
     children,
@@ -39,7 +38,7 @@ IconButton.propTypes = {
     onClick: PropTypes.func.isRequired,
 }
 
-IconButton.default = {
+IconButton.defaultProps = {
 }
 
 export default IconButton;

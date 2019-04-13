@@ -11,7 +11,6 @@ export default {
   fadedBlack: 'rgba(0,0,0,0.7)',
   hover:      'rgba(0,0,0,0.05)',
   elevation:      '#00000066',
-  iconDefault: '#5f6368',
 
   // By color
   alto:       '#D9D9D9',

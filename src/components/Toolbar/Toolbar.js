@@ -14,6 +14,8 @@ const SContainer = styled.div`
 `
 
 const SToolbar = styled.div`
+    display: flex;
+    align-items: center;
     height: ${heigth}px;
     padding: 8px;
     background-color: ${Colors.primary};
@@ -45,7 +47,7 @@ Toolbar.propsTypes = {
     children: PropTypes.node,
 }
 
-Toolbar.default = {
+Toolbar.defaultProps = {
 
 }
 
