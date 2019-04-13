@@ -6,5 +6,12 @@ export default {
         md: '32px',
         lg: '40px',
         xlg: '48px'
-    }
+    },
+    Toolbar: {
+        heigth: 48,
+        elevation: 4,
+    },
+    ZIndex: {
+        Toolbar: 100
+    },
 }

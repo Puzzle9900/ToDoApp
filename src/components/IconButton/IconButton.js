@@ -17,7 +17,6 @@ const SButton = styled.button`
     &:focus {
         outline:0;
     }
-
 `
 
 

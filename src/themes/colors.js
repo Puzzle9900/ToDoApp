@@ -1,6 +1,6 @@
 export default {
   // By role
-  primary:    '#4f053b',
+  primary:    '#c2185b',
   secondary:  '#EFF6FF',
   success:    '#02B917',
   error:      '#D0021B',
@@ -10,6 +10,7 @@ export default {
   fadedPrime: 'rgba(0,10,92,0.7)',
   fadedBlack: 'rgba(0,0,0,0.7)',
   hover:      'rgba(0,0,0,0.05)',
+  elevation:      '#00000066',
   iconDefault: '#5f6368',
 
   // By color
