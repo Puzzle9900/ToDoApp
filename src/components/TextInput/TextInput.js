@@ -49,6 +49,7 @@ function TextInput({
     placeholder,
     onChange,
     typography,
+    fullWidth,
 }) {
 
   return (
@@ -56,7 +57,8 @@ function TextInput({
       value={value}
       typography={typography}
       onChange={onChange}
-      placeholder={placeholder} />
+      placeholder={placeholder}
+      fullWidth/>
   )
 }
 
@@ -69,6 +71,8 @@ TextInput.propTypes = {
     onChange: PropTypes.func,
     // Select one of (placeholder, body1, body2, subtitle2, subtitle1, title)
     typography : PropTypes.oneOf(Object.keys(Dimensions.Fonts)),
+    // Define if input should take full width
+    fullWidth: PropTypes.bool,
 }
 
 TextInput.defaultProps = {
@@ -76,6 +80,7 @@ TextInput.defaultProps = {
     placeholder: '',
     onChange: () => {},
     typography: 'title',
+    fullWidth: true,
 }
 
 export default TextInput
