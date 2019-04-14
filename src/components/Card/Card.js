@@ -5,14 +5,14 @@ import styled from 'styled-components'
 
 
 const SCard= styled.div`
-    background: ${({color})=> Colors[color]};
+    background-color: ${({color})=> Colors[color]};
     border-radius: ${Dimensions.BorderRadius};
     border: 1px solid ${Colors.borders};
-    display: inline-block;
+    display: flex;
     position: relative;
     margin: 0.5rem;
-    height: 300px;
-    width: 300px;
+    /* height: 300px; */
+    /* width: 300px; */
 
     ${({elevation}) => elevation && `box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px ${elevation}px rgba(0,0,0,0.24)`};
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
