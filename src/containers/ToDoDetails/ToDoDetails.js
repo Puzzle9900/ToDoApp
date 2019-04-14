@@ -11,14 +11,14 @@ const SContainer = styled.div`
 `
 
 const SFormContainer = styled.div`
-  width: 60%;
+  width: 40%;
   margin: 24px 24px 24px 24px;
 `
 
 const SListContainer = styled.div`
-  width: 80%;
+  width: 50%;
   & > * {
-    margin: 16px 0;
+    margin: 4px 0px 16px 0px;
 }
 `
 
@@ -31,20 +31,42 @@ class ToDoDetails extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.props.fetchToDoCollection()
+  }
+
+  toDoList = () => {
+    const {
+      toDoCollection,
+      upsertToDo,
+      removeToDo
+    } = this.props
+    return Object.values(toDoCollection)
+    .map(toDo =>(
+        <ToDoForm
+          key={toDo.id}
+          toDo={toDo}
+          upsertToDo={upsertToDo}
+          removeToDo={removeToDo}
+        />
+      )
+    )
+  }
+
   render() {
     const {
-        value
-    } = this.state
+      upsertToDo
+    } = this.props
 
     return (
       <SContainer>
         <SFormContainer>
-          <ToDoForm />
+          <ToDoForm
+            upsertToDo={upsertToDo}
+          />
         </SFormContainer>
         <SListContainer>
-          <ToDoForm />
-          <ToDoForm />
-          <ToDoForm />
+          {this.toDoList()}
         </SListContainer>
       </SContainer>
       )
@@ -56,6 +78,10 @@ ToDoDetails.propTypes = {
     toDoCollection: PropTypes.object,
     // Fetch ToDo list
     fetchToDoCollection: PropTypes.func,
+    // Insert or Update a toDo
+    upsertToDo: PropTypes.func,
+    // Remove a toDo
+    removeToDo: PropTypes.func,
 }
 
 ToDoDetails.defaultProps = {

@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import promise from 'redux-promise'
+import promiseMiddleware from 'redux-promise-middleware'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import monitorReducersEnhancer from './enhancers/monitorReducers'
@@ -8,7 +8,7 @@ import loggerMiddleware from './middleware/logger'
 import rootReducer from './reducers'
 
 export default function configureStore(preloadedState) {
-  const middlewares = [loggerMiddleware, thunkMiddleware, promise]
+  const middlewares = [loggerMiddleware, thunkMiddleware, promiseMiddleware]
   if (process.env === 'development') {
     // middlewares.push( someSecretMiddleware)
   }
