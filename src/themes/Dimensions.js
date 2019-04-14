@@ -14,6 +14,7 @@ export default {
     ZIndex: {
         Toolbar: 100
     },
+    BorderRadius: '16px',
     Fonts: {
       placeholder:{
         size: '1rem',
