@@ -14,4 +14,36 @@ export default {
     ZIndex: {
         Toolbar: 100
     },
+    Fonts: {
+      placeholder:{
+        size: '1rem',
+        width: '700',
+        llineHeight: '1.35rem'
+      },
+      body1: {
+        size: '1rem',
+        width: '300',
+        lineHeight: '1rem',
+      },
+      body2: {
+        size: '0.9rem',
+        width: '400',
+        lineHeight: '1rem',
+      },
+      subtitle2:{
+        size: '0.85rem',
+        width: '700',
+        llineHeight: '1.1rem'
+      },
+      subtitle1:{
+        size: '1rem',
+        width: '700',
+        llineHeight: '1.35rem'
+      },
+      title: {
+        size: '1.25rem',
+        width: '700',
+        lineHeight: '1.50rem'
+      }
+    }
 }

@@ -3,6 +3,7 @@ import Icon from './Icon'
 import IconButton from './IconButton'
 import Toolbar from './Toolbar'
 import Card from './Card'
+import TextInput from './TextInput'
 
 
 export default {
@@ -11,4 +12,5 @@ export default {
   IconButton,
   Toolbar,
   Card,
+  TextInput,
 }

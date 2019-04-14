@@ -10,8 +10,9 @@ export default {
   fadedPrime: 'rgba(0,10,92,0.7)',
   fadedBlack: 'rgba(0,0,0,0.7)',
   hover:      'rgba(0,0,0,0.05)',
-  elevation:      '#00000066',
-  borders:  '#D9D9D9',
+  elevation:  '#00000066',
+  borders:    '#D9D9D9',
+  placeholder: '#80868a',
 
   // By color
   buttercup:  '#F5A623',
