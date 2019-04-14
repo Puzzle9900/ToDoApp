@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {Colors, Dimensions} from 'themes'
-import Toolbar from 'components/Toolbar'
+import Toolbar from 'ui-core/Toolbar'
 import ToDoDetails from 'containers/ToDoDetails'
 import styled from 'styled-components'
 

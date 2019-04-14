@@ -1,9 +1,9 @@
 import React, {useState, useCallback} from "react";
 import PropTypes from 'prop-types';
-import Card from 'components/Card'
-import TextInput from 'components/TextInput'
-import IconButton from 'components/IconButton'
-import Icon from 'components/Icon'
+import Card from 'ui-core/Card'
+import TextInput from 'ui-core/TextInput'
+import IconButton from 'ui-core/IconButton'
+import Icon from 'ui-core/Icon'
 // import {Colors, Dimensions} from 'themes'
 // import styled from 'styled-components'
 
