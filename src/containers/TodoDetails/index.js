@@ -1,2 +1,2 @@
-import TodoDetails from './connect'
-export default TodoDetails
+import ToDoDetails from './connect'
+export default ToDoDetails

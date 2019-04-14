@@ -31,7 +31,7 @@ function ToDoForm({
 
   return (
       <Card
-        elevation={8}
+        elevation={createdAt ? 0: 8}
         color={'secondary'}
         {...other}>
         <TextInput
@@ -39,21 +39,26 @@ function ToDoForm({
           placeholder={'Add a to-do...'}
           typography={'body2'}
           onChange={changeDesc} />
-        <IconButton>
-          <Icon iconName={'delete_outline'} size={'sm'} color={'primary'}/>
-        </IconButton>
+        {createdAt &&
+          <IconButton>
+            <Icon iconName={'delete_outline'} size={'sm'} color={'primary'}/>
+          </IconButton>
+        }
       </Card>
   );
 }
 
 ToDoForm.propTypes = {
+  // ToDo Object
   toDo: PropTypes.shape({
     description: PropTypes.string,
     done: false,
     label: PropTypes.string,
     createdAt: PropTypes.object,
   }),
+  // Create or update a ToDo
   upsertTodo: PropTypes.func,
+  // Delete a ToDo
   deleteTodo: PropTypes.func,
 }
 
@@ -63,7 +68,9 @@ ToDoForm.defaultProps = {
     done: false,
     label: '',
     createdAt: null,
-  }
+  },
+  upsertTodo: ()=>{},
+  deleteTodo: ()=>{},
 }
 
 export default ToDoForm;
