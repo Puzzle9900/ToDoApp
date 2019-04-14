@@ -13,25 +13,26 @@ class ServiceEmulator {
   constructor () {
     this.loadEntities = this.loadEntities.bind()
 
-    let entities = this.loadEntities
+    let entities = this.loadEntities()
     try{
       entities = (entities && JSON.parse(entities)) || {}
     } catch(e){
       throw new Error('Invalid data.')
     }
 
-    this.todos = entities.todos || []
+    this.todos = entities.todos || {}
   }
 
   upsertToDo(newToDo) {
-    let id = newToDo.id
+    let {id, createdAt } = newToDo
     if(!id){
       id = uuidv4()
+      createdAt = new Date().toDateString()
     }
 
-    this.todos[id] = {...newToDo, id: id }
+    this.todos[id] = {...newToDo, id , createdAt}
     this.saveEntities()
-    return newToDo
+    return this.todos[id]
   }
 
   deleteToDo(id) {
@@ -39,6 +40,7 @@ class ServiceEmulator {
 
     const deletedToDo = this.todos[id]
     delete this.todos[id]
+    this.saveEntities()
     return deletedToDo
   }
 

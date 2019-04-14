@@ -1,17 +1,17 @@
-import serviceEmulator from './serviceEmulator'
+import servicesEmulator from './servicesEmulator'
 
 
 export default {
   list : () => new Promise((resolve, rejects)=> {
-      const todos = serviceEmulator.instance().todos
+      const todos = servicesEmulator.instance().todos
       resolve(todos)
   }),
   upsert : (newToDo) => new Promise((resolve, rejects)=> {
-      const res = serviceEmulator.instance().upsertToDo(newToDo)
+      const res = servicesEmulator.instance().upsertToDo(newToDo)
       resolve(res)
   }),
   delete : (id) => new Promise((resolve, rejects)=> {
-    const res = serviceEmulator.instance().delete(id)
+    const res = servicesEmulator.instance().deleteToDo(id)
     resolve(res)
   })
 }
