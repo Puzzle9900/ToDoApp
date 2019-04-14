@@ -4,6 +4,7 @@ import IconButton from './IconButton'
 import Toolbar from './Toolbar'
 import Card from './Card'
 import TextInput from './TextInput'
+import ToDoForm from './ToDoForm'
 
 
 export default {
@@ -13,4 +14,5 @@ export default {
   Toolbar,
   Card,
   TextInput,
+  ToDoForm,
 }

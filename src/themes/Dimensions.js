@@ -14,9 +14,9 @@ export default {
     ZIndex: {
         Toolbar: 100
     },
-    BorderRadius: '16px',
+    BorderRadius: '8px',
     Fonts: {
-      placeholder:{
+      placeholder: {
         size: '1rem',
         width: '700',
         llineHeight: '1.35rem'
@@ -24,22 +24,22 @@ export default {
       body1: {
         size: '1rem',
         width: '300',
-        lineHeight: '1rem',
+        lineHeight: '1.25rem',
       },
       body2: {
         size: '0.9rem',
         width: '400',
-        lineHeight: '1rem',
+        lineHeight: '1.15rem',
       },
-      subtitle2:{
+      subtitle2: {
         size: '0.85rem',
         width: '700',
         llineHeight: '1.1rem'
       },
-      subtitle1:{
+      subtitle1: {
         size: '1rem',
         width: '700',
-        llineHeight: '1.35rem'
+        llineHeight: '1.25rem'
       },
       title: {
         size: '1.25rem',

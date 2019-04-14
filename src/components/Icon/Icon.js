@@ -5,8 +5,6 @@ import styled from 'styled-components'
 
 
 const SIcon= styled.div`
-    width: fit-content;
-    height: fit-content;
     i {
         font-size: ${({size}) => Dimensions.IconSize[size]};
         color: ${({color}) => Colors[color]};
