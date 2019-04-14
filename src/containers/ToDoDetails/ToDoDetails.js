@@ -52,14 +52,14 @@ class ToDoDetails extends React.Component {
 }
 
 ToDoDetails.propTypes = {
-    // Children node to render
-    children: PropTypes.node,
-    // Color of the icon
-    color: PropTypes.oneOf(Object.keys(Colors)),
+    // List of ToDo
+    toDoCollection: PropTypes.object,
+    // Fetch ToDo list
+    fetchToDoCollection: PropTypes.func,
 }
 
 ToDoDetails.defaultProps = {
-    color: 'secondary',
+  toDoList: {}
 }
 
 export default ToDoDetails;

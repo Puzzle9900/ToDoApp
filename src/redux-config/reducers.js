@@ -7,5 +7,5 @@ import { combineReducers } from 'redux'
  * Creates the main reducer with the dynamically injected ones
  */
 export default combineReducers({
-  // nav:            require('redux/Navigation/reducer').reducer,
+  todos:            require('redux/ToDo/reducer').reducer,
 })
