@@ -50,6 +50,7 @@ function TextInput({
     onChange,
     typography,
     fullWidth,
+    ...other
 }) {
 
   return (
@@ -58,7 +59,8 @@ function TextInput({
       typography={typography}
       onChange={onChange}
       placeholder={placeholder}
-      fullWidth/>
+      fullWidth
+      {...other}/>
   )
 }
 
