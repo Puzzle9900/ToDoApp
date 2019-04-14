@@ -8,11 +8,12 @@ import styled from 'styled-components'
 
 
 const SCard = styled(Card)`
-  padding: 0px 8px 0px 8px;
+  padding: 2px 8px 2px 8px;
 `
 
 function SearchBar({
-  searchToDo
+  searchToDo,
+  ...other
 }) {
 
   const [searchText, setSearch] = useState('')
@@ -32,7 +33,9 @@ function SearchBar({
 
   return (
       <SCard
-        color={'secondary'}>
+        id={'search-bar-root'}
+        color={'secondary'}
+        {...other}>
         <IconButton onClick={invokeSerarch}>
           <Icon iconName={'search'} size={'sm'} color={'paleSky'}/>
         </IconButton>

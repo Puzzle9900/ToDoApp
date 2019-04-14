@@ -1,6 +1,6 @@
 export default {
   // By role
-  primary:    '#c2185a',
+  primary:    '#0277BD',
   secondary:  '#FFF',
   success:    '#02B917',
   error:      '#D0021B',

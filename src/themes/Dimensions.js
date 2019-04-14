@@ -42,10 +42,20 @@ export default {
         width: '700',
         llineHeight: '1.25rem'
       },
-      title: {
+      title1: {
         size: '1.25rem',
         width: '700',
         lineHeight: '1.50rem'
+      },
+      title2: {
+        size: '1.25rem',
+        width: '300',
+        lineHeight: '1.50rem'
+      },
+      appTitle: {
+        size: '1.50rem',
+        width: '400',
+        lineHeight: '2rem'
       }
     }
 }

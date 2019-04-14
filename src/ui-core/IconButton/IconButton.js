@@ -5,6 +5,8 @@ import styled from 'styled-components'
 
 
 const SButton = styled.button`
+    width: fit-content;
+    height: fit-content;
     padding: 8px;
     border: 0px;
     border-radius: 50%;
