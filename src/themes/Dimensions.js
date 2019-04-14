@@ -10,6 +10,7 @@ export default {
     Toolbar: {
         heigth: 48,
         elevation: 4,
+        padding: 8
     },
     ZIndex: {
         Toolbar: 100

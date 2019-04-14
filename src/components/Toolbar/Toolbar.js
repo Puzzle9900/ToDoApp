@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {Colors, Dimensions} from 'themes'
 import styled from 'styled-components'
 
-const {heigth, elevation} = Dimensions.Toolbar
+const {heigth, elevation, padding} = Dimensions.Toolbar
 
 const SContainer = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -17,7 +17,7 @@ const SToolbar = styled.div`
     display: flex;
     align-items: center;
     height: ${heigth}px;
-    padding: 8px;
+    padding: ${padding}px;
     background-color: ${Colors.primary};
 `
 
