@@ -4,7 +4,7 @@ import API from 'apis/todoService'
  * Tasks to perform async Fetch ToDo
  */
 export const fetchToDos = () => (
-  new Promise((resolve, reject) => API.todo.list()
+  new Promise((resolve, reject) => API.list()
     .then((response) => {
       resolve(response)
     })
@@ -15,7 +15,7 @@ export const fetchToDos = () => (
  * Tasks to perform async update or create toDo
  */
 export const upsertToDo = (newToDo) => (
-  new Promise((resolve, reject) => API.todo.upsert(newToDo)
+  new Promise((resolve, reject) => API.upsert(newToDo)
     .then((response) => {
       resolve(response)
     })
@@ -25,8 +25,8 @@ export const upsertToDo = (newToDo) => (
 /**
  * Tasks to perform async delete toDo
  */
-export const deleteToDo = (id) => (
-  new Promise((resolve, reject) => API.todo.delete(id)
+export const removeToDo = (id) => (
+  new Promise((resolve, reject) => API.delete(id)
     .then((response) => {
       resolve(response)
     })
