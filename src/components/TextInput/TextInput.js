@@ -8,9 +8,11 @@ const SInput = styled.input`
   border: 0px solid;
   padding: 0px;
   margin: 12px 14px 12px 14px;
-  font-weight: ${ ({type}) => Dimensions.Fonts[type].width };
-  font-size: ${ ({type}) => Dimensions.Fonts[type].size };
-  line-height: ${ ({type}) => Dimensions.Fonts[type].lineHeight };
+  font-weight: ${ ({typography}) => Dimensions.Fonts[typography].width };
+  font-size: ${ ({typography}) => Dimensions.Fonts[typography].size };
+  line-height: ${ ({typography}) => Dimensions.Fonts[typography].lineHeight };
+  /* background-color: #0000; */
+  ${({fullWidth}) => fullWidth && `width: ${100}%`}
 
   &:focus {
       outline:0;
@@ -46,12 +48,13 @@ function TextInput({
     value,
     placeholder,
     onChange,
-    type,
+    typography,
 }) {
+
   return (
     <SInput
       value={value}
-      type={type}
+      typography={typography}
       onChange={onChange}
       placeholder={placeholder} />
   )
@@ -64,15 +67,15 @@ TextInput.propTypes = {
     placeholder: PropTypes.string,
     // Callback when text change
     onChange: PropTypes.func,
-    //
-    type : PropTypes.oneOf(Object.keys(Dimensions.Fonts))
+    // Select one of (placeholder, body1, body2, subtitle2, subtitle1, title)
+    typography : PropTypes.oneOf(Object.keys(Dimensions.Fonts)),
 }
 
 TextInput.defaultProps = {
     value: '',
     placeholder: '',
     onChange: () => {},
-    type: 'title',
+    typography: 'title',
 }
 
 export default TextInput
