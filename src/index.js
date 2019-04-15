@@ -5,12 +5,14 @@ import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 import 'normalize.css';
+import "typeface-roboto";
+import AppRouter from 'routes/AppRouter'
 
 const store = configureStore()
 
 render(
     <Provider store={store}>
-        <input value={'hello'} />
+      <AppRouter />
     </Provider>
     , document.getElementById('root'));
 
