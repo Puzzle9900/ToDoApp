@@ -1,12 +1,10 @@
-import React, {useState, useCallback} from "react";
+import React from "react";
 import PropTypes from 'prop-types';
 import SearchBar from 'components/SearchBar'
+import Media from "react-media";
 import Toolbar from 'ui-core/Toolbar'
-import TextInput from 'ui-core/TextInput'
-import IconButton from 'ui-core/IconButton'
 import Icon from 'ui-core/Icon'
 import TextLabel from 'ui-core/TextLabel'
-// import {Colors, Dimensions} from 'themes'
 import styled from 'styled-components'
 
 const SContainer = styled.div`
@@ -18,6 +16,14 @@ const SContainer = styled.div`
 
 const SSearchBar = styled(SearchBar)`
   grid-column: 2;
+
+  @media (min-width: 750px) and (max-width: 1000px) {
+    grid-column: 2 / 4;
+  }
+
+  @media (max-width: 750px) {
+    grid-column: 1 / 4;
+  }
 `
 
 const SLeftContainer = styled.div`
@@ -25,6 +31,10 @@ const SLeftContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: 16px;
+
+  @media (max-width: 750px) {
+    display: none
+  }
 
   #text-label {
     margin-left: 4px;
@@ -38,9 +48,6 @@ function MainToolbar({
       <Toolbar>
         <SContainer>
           <SLeftContainer>
-            {/* <IconButton onClick={() => {console.log(`Drawer open/close`)}}>
-              <Icon iconName={'dehaze'} size={'sm'} color={'secondary'}/>
-            </IconButton> */}
             <Icon iconName={'playlist_add_check'} size={'lg'} color={'secondary'}/>
             <TextLabel value={'To-Do'} typography={'appTitle'}/>
           </SLeftContainer>
