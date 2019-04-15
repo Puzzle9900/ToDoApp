@@ -5,7 +5,7 @@ import TextInput from 'ui-core/TextInput'
 import IconButton from 'ui-core/IconButton'
 import Icon from 'ui-core/Icon'
 import {withRouter} from 'react-router'
-import useLazySetter from 'hooks'
+import useLazySetter from 'hooks/useLazySetter'
 import styled from 'styled-components'
 
 
