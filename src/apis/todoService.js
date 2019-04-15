@@ -7,8 +7,9 @@ export default {
       if(!pattern) return resolve(todos)
 
       const result = {}
+      pattern = pattern.toLowerCase()
       Object.values(todos).forEach(todo => {
-        const searchInto = `${todo.description} ${todo.label}`
+        const searchInto = `${todo.description} ${todo.label}`.toLowerCase()
         if(searchInto.includes(pattern)) {
           result[todo.id] = todo
         }
