@@ -30,29 +30,32 @@ const SLeftContainer = styled.div`
   }
 `
 
-function MainToolbar() {
+function MainToolbar({
+  filterToDo
+}) {
   return (
       <Toolbar>
         <SContainer>
           <SLeftContainer>
-            <IconButton>
+            <IconButton onClick={() => {console.log(`Drawer open/close`)}}>
               <Icon iconName={'dehaze'} size={'sm'} color={'secondary'}/>
             </IconButton>
-            <IconButton>
-              <Icon iconName={'playlist_add_check'} size={'sm'} color={'secondary'}/>
-            </IconButton>
+            <Icon iconName={'playlist_add_check'} size={'sm'} color={'secondary'}/>
             <TextLabel value={'To-Do'} typography={'appTitle'}/>
           </SLeftContainer>
-          <SSearchBar />
+          <SSearchBar filterToDo={filterToDo}/>
         </SContainer>
       </Toolbar>
   );
 }
 
 MainToolbar.propTypes = {
+  // Search ToDos
+  filterToDo: PropTypes.func
 }
 
 MainToolbar.defaultProps = {
+  filterToDo: () => {console.log(`Search ToDo Default Func`)}
 }
 
 export default MainToolbar;
