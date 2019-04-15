@@ -4,6 +4,7 @@ import Card from 'ui-core/Card'
 import TextInput from 'ui-core/TextInput'
 import IconButton from 'ui-core/IconButton'
 import Icon from 'ui-core/Icon'
+import Done from 'ui-core/Done'
 // import {Colors, Dimensions} from 'themes'
 import styled from 'styled-components'
 
@@ -30,8 +31,15 @@ function ToDoForm({
 
 
   const changeDesc = (description) => setToDo(prevToDo => ({...prevToDo, description }))
+  const changeDone = (done) => setToDo(prevToDo => {
+    const newTodo = { ...prevToDo, done }
+    upsertToDo(newTodo)
+    return newTodo
+  })
   const upsertCurrentToDo = () =>  setToDo(prevToDo => {
-    upsertToDo(prevToDo)
+    if(toDo !== prevToDo) {
+      upsertToDo(prevToDo)
+    }
     return prevToDo.createdAt ? prevToDo : {...emptyToDo}
   })
 
@@ -40,16 +48,12 @@ function ToDoForm({
     (e) => { if(e.key === 'Enter') upsertCurrentToDo() },
     [upsertToDo]
   )
-  const onBlur = useCallback(
-    (e) => upsertCurrentToDo(),
-    [upsertToDo]
-  )
+  const onBlur = useCallback(upsertCurrentToDo,[upsertToDo])
 
   const {
     id,
     description,
     createdAt,
-    label,
     done,
   } = newToDo
 
@@ -59,6 +63,12 @@ function ToDoForm({
         color={'secondary'}
         onBlur={onBlur}
         {...other}>
+        {createdAt &&
+          <Done
+            checked={done}
+            onChange={(e)=> changeDone(e.target.checked)}
+          />
+        }
         <STextInput
           value={description}
           placeholder={'Add a to-do...'}
@@ -84,7 +94,6 @@ ToDoForm.propTypes = {
     id: PropTypes.string,
     description: PropTypes.string,
     done: false,
-    label: PropTypes.string,
     createdAt: PropTypes.string,
   }),
   // Create or update a ToDo
