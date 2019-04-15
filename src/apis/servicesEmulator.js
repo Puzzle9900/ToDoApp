@@ -8,7 +8,6 @@ class ServiceEmulator {
 
   constructor () {
     this.loadEntities = this.loadEntities.bind()
-    this.saveEntities = this.saveEntities.bind()
 
     let entities = this.loadEntities()
     try{
