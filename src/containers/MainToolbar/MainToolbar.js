@@ -24,6 +24,7 @@ const SLeftContainer = styled.div`
   grid-column: 1;
   display: flex;
   align-items: center;
+  margin-left: 16px;
 
   #text-label {
     margin-left: 4px;
@@ -37,9 +38,9 @@ function MainToolbar({
       <Toolbar>
         <SContainer>
           <SLeftContainer>
-            <IconButton onClick={() => {console.log(`Drawer open/close`)}}>
+            {/* <IconButton onClick={() => {console.log(`Drawer open/close`)}}>
               <Icon iconName={'dehaze'} size={'sm'} color={'secondary'}/>
-            </IconButton>
+            </IconButton> */}
             <Icon iconName={'playlist_add_check'} size={'sm'} color={'secondary'}/>
             <TextLabel value={'To-Do'} typography={'appTitle'}/>
           </SLeftContainer>
