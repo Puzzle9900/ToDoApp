@@ -27,7 +27,7 @@ const STextLabel = styled(TextLabel)`
 
 const RenderList = memo(({toDoCollection, upsertToDo, removeToDo}) => {
   const list = Object.values(toDoCollection)
-  const sorted = list.sort((a,b)=> a.createdAt <= b.createdAt ? -1 : 1 )
+  const sorted = list.sort((a,b)=> a.createdAt < b.createdAt ? -1 : 1 )
   const pending = sorted.filter(todo => !todo.done)
   const done = sorted.filter(todo => todo.done)
   return (

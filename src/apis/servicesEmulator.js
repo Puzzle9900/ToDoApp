@@ -1,21 +1,19 @@
+import uuidv4 from './uuidv4'
+import initial_data from './initial_data'
 const COLLECTIONS_STORAGE_KEY = 'COLLECTIONS_STORAGE_KEY'
 
-function uuidv4() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    const r = Math.random() * 16 | 0
-    const v = c === 'x' ? r : ((r & 0x3) | 0x8);
-    return v.toString(16);
-  });
-}
+
 
 class ServiceEmulator {
 
   constructor () {
     this.loadEntities = this.loadEntities.bind()
+    this.saveEntities = this.saveEntities.bind()
 
     let entities = this.loadEntities()
     try{
       entities = (entities && JSON.parse(entities)) || {}
+
     } catch(e){
       throw new Error('Invalid data.')
     }
@@ -52,7 +50,15 @@ class ServiceEmulator {
   }
 
   loadEntities(){
-    return localStorage.getItem(COLLECTIONS_STORAGE_KEY)
+    let entities = localStorage.getItem(COLLECTIONS_STORAGE_KEY)
+    if(!entities){
+      // Initialize collection with Taks done to complete this assessment
+      const initialData = {}
+      initial_data.forEach(data => initialData[data.id] = data )
+      localStorage.setItem(COLLECTIONS_STORAGE_KEY, JSON.stringify({todos: initialData}))
+      entities = localStorage.getItem(COLLECTIONS_STORAGE_KEY)
+    }
+    return entities
   }
 
 }
