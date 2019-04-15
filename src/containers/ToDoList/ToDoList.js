@@ -30,10 +30,9 @@ const RenderList = memo(({toDoCollection, upsertToDo, removeToDo}) => {
   const sorted = list.sort((a,b)=> a.createdAt <= b.createdAt ? -1 : 1 )
   const pending = sorted.filter(todo => !todo.done)
   const done = sorted.filter(todo => todo.done)
-  const stillPending = !!pending.length
   return (
     <>
-      {stillPending && <STextLabel value={'Pending'} typography={'title1'} color={'fadedBlack'}/>}
+      {!!pending.length && <STextLabel value={'Pending'} typography={'title1'} color={'fadedBlack'}/>}
       {
         pending.map(toDo =>(
             <ToDoForm
@@ -45,7 +44,7 @@ const RenderList = memo(({toDoCollection, upsertToDo, removeToDo}) => {
           )
         )
       }
-      {!!done.length && <STextLabel value={stillPending ? 'Done' : 'Everything Done'} typography={'title1'} color={'fadedBlack'}/>}
+      {!!done.length && <STextLabel value={'Done'} typography={'title1'} color={'fadedBlack'}/>}
       {
         done.map(toDo => (
             <ToDoForm
