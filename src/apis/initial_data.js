@@ -15,7 +15,7 @@ export default [
   },
   {
     id: uuidv4(),
-    description: 'Create base project and folder structure.',
+    description: 'Create base project and folder structure (using create-react-app).',
     done: true,
     createdAt: date,
   },
@@ -28,6 +28,12 @@ export default [
   {
     id: uuidv4(),
     description: 'Work with the differents parts of Redux.',
+    done: true,
+    createdAt: date,
+  },
+  {
+    id: uuidv4(),
+    description: 'Create a Redux middleware and enhancer.',
     done: true,
     createdAt: date,
   },
@@ -87,6 +93,12 @@ export default [
   },
   {
     id: uuidv4(),
+    description: 'Split UI on well defined and reusable components.',
+    done: true,
+    createdAt: date,
+  },
+  {
+    id: uuidv4(),
     description: 'Emulate http requests.',
     done: true,
     createdAt: date,
@@ -94,6 +106,12 @@ export default [
   {
     id: uuidv4(),
     description: 'Create theme.',
+    done: true,
+    createdAt: date,
+  },
+  {
+    id: uuidv4(),
+    description: 'Use local storage to storage data',
     done: true,
     createdAt: date,
   },
