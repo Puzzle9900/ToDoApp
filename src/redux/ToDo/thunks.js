@@ -3,8 +3,8 @@ import API from 'apis/todoService'
 /**
  * Tasks to perform async Fetch ToDo
  */
-export const fetchToDos = () => (
-  new Promise((resolve, reject) => API.list()
+export const fetchToDos = (filterObject) => (
+  new Promise((resolve, reject) => API.list(filterObject)
     .then((response) => {
       resolve(response)
     })

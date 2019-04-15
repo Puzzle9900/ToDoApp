@@ -11,10 +11,10 @@ import {
 } from './thunks'
 
 
-export const fetchToDoCollection = () => (dispatch) => {
+export const fetchToDoCollection = (filterObject) => (dispatch) => {
   dispatch({
     type:    FETCH_TODO,
-    payload: fetchToDos(),
+    payload: fetchToDos(filterObject || {}),
   })
 }
 

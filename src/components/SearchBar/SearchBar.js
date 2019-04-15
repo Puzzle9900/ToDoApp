@@ -1,9 +1,10 @@
-import React, {useState, useCallback} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import PropTypes from 'prop-types';
 import Card from 'ui-core/Card'
 import TextInput from 'ui-core/TextInput'
 import IconButton from 'ui-core/IconButton'
 import Icon from 'ui-core/Icon'
+import useLazySetter from 'hooks'
 import styled from 'styled-components'
 
 
@@ -12,7 +13,7 @@ const SCard = styled(Card)`
 `
 
 function SearchBar({
-  searchToDo,
+  filterToDo,
   ...other
 }) {
 
@@ -22,13 +23,26 @@ function SearchBar({
   const onClearSearch = useCallback(() => setSearch(''))
 
   const invokeSerarch = () => setSearch(prevState => {
-    searchToDo(prevState)
+    filterToDo({ pattern: prevState})
     return prevState
   })
 
+  const lazySearchText = useLazySetter(searchText, 500)
+
+  useEffect(() => {
+    filterToDo({ pattern: lazySearchText})
+  }, [lazySearchText])
+
   const onKeyPressed = useCallback(
-    (e) => { if(e.key === 'Enter') invokeSerarch() },
-    [searchToDo]
+    (e) => {
+      if(e.key === 'Enter') {
+        invokeSerarch()
+      }
+      else {
+
+      }
+    },
+    [filterToDo]
   )
 
   return (
@@ -55,11 +69,11 @@ function SearchBar({
 
 SearchBar.propTypes = {
   // Search ToDo
-  searchToDo: PropTypes.func
+  filterToDo: PropTypes.func
 }
 
 SearchBar.defaultProps = {
-  searchToDo: () => {console.log(`Search Pressed`)}
+  filterToDo: () => {console.log(`Search Pressed`)}
 }
 
 export default SearchBar;

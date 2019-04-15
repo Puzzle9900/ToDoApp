@@ -13,7 +13,6 @@ export const UPSERT_TODO_FULFILLED = `${PREFIX}/UPSERT_TODO_FULFILLED`
 export const REMOVE_TODO           = `${PREFIX}/REMOVE_TODO`
 export const REMOVE_TODO_FULFILLED = `${PREFIX}/REMOVE_TODO_FULFILLED`
 
-
 export const INITIAL_STATE = {
   todos: {},
 }
