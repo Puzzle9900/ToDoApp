@@ -5,7 +5,6 @@ import TextInput from 'ui-core/TextInput'
 import IconButton from 'ui-core/IconButton'
 import Icon from 'ui-core/Icon'
 import Done from 'ui-core/Done'
-// import {Colors, Dimensions} from 'themes'
 import styled from 'styled-components'
 
 
@@ -78,11 +77,8 @@ function ToDoForm({
         />
         {createdAt ?
           <IconButton onClick={() => removeToDo(id)}>
-            <Icon iconName={'delete_outline'} size={'sm'} color={'primary'}/>
+            <Icon iconName={'delete_outline'} size={'sm'} color={'paleSky'}/>
           </IconButton> : null
-          // <IconButton onClick={() => changeDesc('')}>
-          //   <Icon iconName={'clear'} size={'sm'} color={'primary'}/>
-          // </IconButton>
         }
       </Card>
   );
