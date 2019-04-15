@@ -4,6 +4,7 @@ import Card from 'ui-core/Card'
 import TextInput from 'ui-core/TextInput'
 import IconButton from 'ui-core/IconButton'
 import Icon from 'ui-core/Icon'
+import {withRouter} from 'react-router'
 import useLazySetter from 'hooks'
 import styled from 'styled-components'
 
@@ -14,43 +15,58 @@ const SCard = styled(Card)`
 
 function SearchBar({
   filterToDo,
+  history,
   ...other
 }) {
 
   const [searchText, setSearch] = useState('')
 
-  const onSearchChange = useCallback((e) => setSearch(e.target.value))
-  const onClearSearch = useCallback(() => setSearch(''))
+  const onSearchChange = useCallback((e) => {
+    setSearch(e.target.value)
+  })
+  const onClearSearch = useCallback(() => {
+    history.push(`/home`)
+    setSearch('')
+  })
 
-  const invokeSerarch = () => setSearch(prevState => {
-    filterToDo({ pattern: prevState})
+  const invokeSearch = () => setSearch(prevState => {
+    filterToDo({pattern: prevState})
     return prevState
   })
 
   const lazySearchText = useLazySetter(searchText, 500)
-
   useEffect(() => {
-    filterToDo({ pattern: lazySearchText})
+    invokeSearch()
   }, [lazySearchText])
 
   const onKeyPressed = useCallback(
     (e) => {
       if(e.key === 'Enter') {
-        invokeSerarch()
-      }
-      else {
-
+        invokeSearch()
       }
     },
     [filterToDo]
   )
+
+  const onFocus = useCallback(() => {
+    history.push('/search')
+  })
+  const onBlur = useCallback(() => {
+    setSearch(prevState => {
+      if(!prevState){
+        history.push('/home')
+      }
+      return prevState
+    })
+
+  })
 
   return (
       <SCard
         id={'search-bar-root'}
         color={'secondary'}
         {...other}>
-        <IconButton onClick={invokeSerarch}>
+        <IconButton onClick={invokeSearch}>
           <Icon iconName={'search'} size={'sm'} color={'paleSky'}/>
         </IconButton>
         <TextInput
@@ -59,6 +75,8 @@ function SearchBar({
           typography={'body2'}
           onChange={onSearchChange}
           onKeyDown={onKeyPressed}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
         <IconButton onClick={onClearSearch}>
           <Icon iconName={'close'} size={'sm'} color={'paleSky'}/>
@@ -69,11 +87,13 @@ function SearchBar({
 
 SearchBar.propTypes = {
   // Search ToDo
-  filterToDo: PropTypes.func
+  filterToDo: PropTypes.func,
+  // History object from react route
+  history: PropTypes.object
 }
 
 SearchBar.defaultProps = {
   filterToDo: () => {console.log(`Search Pressed`)}
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

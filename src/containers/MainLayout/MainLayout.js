@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {Dimensions} from 'themes'
 import MainToolbar from 'containers/MainToolbar'
-import ToDoDetails from 'containers/ToDoDetails'
 import styled from 'styled-components'
 
 const SContainer = styled.div`
@@ -23,11 +22,15 @@ class MainLayout extends React.Component {
   }
 
   render() {
+    const {
+      children
+    } = this.props
+
     return (
       <SContainer>
         <MainToolbar/>
         <SDetailsContainer>
-          <ToDoDetails />
+          {children}
         </SDetailsContainer>
 
       </SContainer>
@@ -36,7 +39,7 @@ class MainLayout extends React.Component {
 }
 
 MainLayout.propTypes = {
-    removeToDo: PropTypes.func,
+    children: PropTypes.node,
 }
 
 MainLayout.defaultProps = {
