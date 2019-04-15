@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Colors} from 'themes'
 import styled from 'styled-components'
 
-
 const SContainer= styled.div`
   .round {
     width: fit-content;
@@ -29,6 +28,7 @@ const SContainer= styled.div`
     border: 2px solid #fff;
     border-top: none;
     border-right: none;
+    margin-left: -14px;
     content: "";
     height: 6px;
     width: 12px;
@@ -41,13 +41,13 @@ const SContainer= styled.div`
     visibility: hidden;
   }
 
-  .round input[type="checkbox"]:checked + label {
-    background-color: ${Colors.success};
-    border-color: ${Colors.success};
+  .round label {
+    ${({checked}) => checked && `background-color: ${Colors.success}`}
+    ${({checked}) => checked &&  `border-color: ${Colors.success}`}
   }
 
-  .round input[type="checkbox"]:checked + label:after {
-    opacity: 1;
+  .round label:after {
+    ${({checked}) => checked && `opacity: 1`}
   }
 
   #checkbox {
@@ -61,10 +61,11 @@ function Done({
   ...other
 }) {
   return (
-    <SContainer {...other}>
+    <SContainer checked={checked} {...other}>
       <div class="round">
-        <input type="checkbox" id="checkbox" checked={checked} onChange={onChange}/>
-        <label for="checkbox"></label>
+        <label>
+          <input type="checkbox" checked={checked} onChange={onChange}/>
+        </label>
       </div>
     </SContainer>
   );
@@ -79,7 +80,7 @@ Done.propTypes = {
 
 Done.defaultProps = {
   onChange: console.log(`Checked invoked`),
-  checked: false
+  checked: true
 }
 
 export default Done;
