@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from 'prop-types';
 import ToDoForm from 'components/ToDoForm'
 import styled from 'styled-components'
@@ -9,6 +9,39 @@ const SListContainer = styled.div`
     margin: 4px 0px 16px 0px;
 }
 `
+
+
+const RenderList = memo(({toDoCollection, upsertToDo, removeToDo}) => {
+  const list = Object.values(toDoCollection)
+  const sorted = list.sort((a,b)=> a.createdAt <= b.createdAt ? -1 : 1 )
+
+  return (
+    <>
+      {
+        sorted.filter(todo => !todo.done).map(toDo =>(
+            <ToDoForm
+              key={toDo.id}
+              toDo={toDo}
+              upsertToDo={upsertToDo}
+              removeToDo={removeToDo}
+            />
+          )
+        )
+      }
+      {
+        sorted.filter(todo => todo.done).map(toDo => (
+            <ToDoForm
+              key={toDo.id}
+              toDo={toDo}
+              upsertToDo={upsertToDo}
+              removeToDo={removeToDo}
+            />
+          )
+        )
+      }
+    </>
+  )
+})
 
 class ToDoList extends React.Component {
   constructor(props) {
@@ -22,6 +55,8 @@ class ToDoList extends React.Component {
   }
 
   render() {
+
+
     const {
       toDoCollection,
       upsertToDo,
@@ -32,18 +67,11 @@ class ToDoList extends React.Component {
 
     return (
       <SListContainer {...other}>
-        {
-          Object.values(toDoCollection)
-          .map(toDo =>(
-              <ToDoForm
-                key={toDo.id}
-                toDo={toDo}
-                upsertToDo={upsertToDo}
-                removeToDo={removeToDo}
-              />
-            )
-          )
-        }
+        <RenderList
+          toDoCollection={toDoCollection}
+          upsertToDo={upsertToDo}
+          removeToDo={removeToDo}
+        />
       </SListContainer>
     )
   }
