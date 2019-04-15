@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import SearchBar from 'components/SearchBar'
-import Media from "react-media";
 import Toolbar from 'ui-core/Toolbar'
 import Icon from 'ui-core/Icon'
 import TextLabel from 'ui-core/TextLabel'
