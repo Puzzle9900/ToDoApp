@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import ToDoForm from 'components/ToDoForm'
+import ToDoList from 'containers/ToDoList'
 import styled from 'styled-components'
 
 const SContainer = styled.div`
@@ -14,42 +15,11 @@ const SFormContainer = styled.div`
   margin: 24px 24px 24px 24px;
 `
 
-const SListContainer = styled.div`
-  width: 50%;
-  & > * {
-    margin: 4px 0px 16px 0px;
-}
-`
-
-
 class ToDoDetails extends React.Component {
   constructor(props) {
     super(props)
     this.state= {
-        value : "Test"
     }
-  }
-
-  componentDidMount(){
-    this.props.fetchToDoCollection()
-  }
-
-  toDoList = () => {
-    const {
-      toDoCollection,
-      upsertToDo,
-      removeToDo
-    } = this.props
-    return Object.values(toDoCollection)
-    .map(toDo =>(
-        <ToDoForm
-          key={toDo.id}
-          toDo={toDo}
-          upsertToDo={upsertToDo}
-          removeToDo={removeToDo}
-        />
-      )
-    )
   }
 
   render() {
@@ -64,23 +34,15 @@ class ToDoDetails extends React.Component {
             upsertToDo={upsertToDo}
           />
         </SFormContainer>
-        <SListContainer>
-          {this.toDoList()}
-        </SListContainer>
+        <ToDoList />
       </SContainer>
       )
   }
 }
 
 ToDoDetails.propTypes = {
-    // List of ToDo
-    toDoCollection: PropTypes.object,
-    // Fetch ToDo list
-    fetchToDoCollection: PropTypes.func,
     // Insert or Update a toDo
     upsertToDo: PropTypes.func,
-    // Remove a toDo
-    removeToDo: PropTypes.func,
 }
 
 ToDoDetails.defaultProps = {
