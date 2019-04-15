@@ -5,7 +5,7 @@ import TextInput from 'ui-core/TextInput'
 import IconButton from 'ui-core/IconButton'
 import Icon from 'ui-core/Icon'
 // import {Colors, Dimensions} from 'themes'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
 
 const emptyToDo = {
@@ -16,6 +16,9 @@ const emptyToDo = {
   createdAt: null,
 }
 
+const STextInput = styled(TextInput)`
+  margin: 0px 8px 0px 8px;
+`
 
 function ToDoForm({
     toDo,
@@ -56,7 +59,7 @@ function ToDoForm({
         color={'secondary'}
         onBlur={onBlur}
         {...other}>
-        <TextInput
+        <STextInput
           value={description}
           placeholder={'Add a to-do...'}
           typography={'body2'}

@@ -6,8 +6,7 @@ import styled from 'styled-components'
 
 const SInput = styled.input`
   border: 0px solid;
-  padding: 0px;
-  margin: 12px 14px 12px 14px;
+  padding: 12px 8px 12px 8px;
   font-weight: ${ ({typography}) => Dimensions.Fonts[typography].width };
   font-size: ${ ({typography}) => Dimensions.Fonts[typography].size };
   line-height: ${ ({typography}) => Dimensions.Fonts[typography].lineHeight };
