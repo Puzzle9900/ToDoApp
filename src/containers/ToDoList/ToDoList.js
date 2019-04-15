@@ -20,6 +20,10 @@ const SListContainer = styled.div`
   }
 `
 
+const STextLabel = styled(TextLabel)`
+  margin-left: 8px;
+`
+
 
 const RenderList = memo(({toDoCollection, upsertToDo, removeToDo}) => {
   const list = Object.values(toDoCollection)
@@ -28,7 +32,7 @@ const RenderList = memo(({toDoCollection, upsertToDo, removeToDo}) => {
   const done = sorted.filter(todo => todo.done)
   return (
     <>
-      {!!pending.length && <TextLabel value={'Pending'} color/>}
+      {!!pending.length && <STextLabel value={'Pending'} typography={'title1'} color={'fadedBlack'}/>}
       {
         pending.map(toDo =>(
             <ToDoForm
@@ -40,7 +44,7 @@ const RenderList = memo(({toDoCollection, upsertToDo, removeToDo}) => {
           )
         )
       }
-      {!!done.length && <TextLabel value={'Done'} color={'fadedBlack'}/>}
+      {!!done.length && <STextLabel value={'Done'} typography={'title1'} color={'fadedBlack'}/>}
       {
         done.map(toDo => (
             <ToDoForm
