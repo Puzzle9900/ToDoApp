@@ -41,7 +41,7 @@ function MainToolbar({
             {/* <IconButton onClick={() => {console.log(`Drawer open/close`)}}>
               <Icon iconName={'dehaze'} size={'sm'} color={'secondary'}/>
             </IconButton> */}
-            <Icon iconName={'playlist_add_check'} size={'sm'} color={'secondary'}/>
+            <Icon iconName={'playlist_add_check'} size={'lg'} color={'secondary'}/>
             <TextLabel value={'To-Do'} typography={'appTitle'}/>
           </SLeftContainer>
           <SSearchBar filterToDo={filterToDo}/>
