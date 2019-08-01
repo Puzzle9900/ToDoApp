@@ -62,7 +62,7 @@ function Done({
 }) {
   return (
     <SContainer checked={checked} {...other}>
-      <div class="round">
+      <div className="round">
         <label>
           <input type="checkbox" checked={checked} onChange={onChange}/>
         </label>
